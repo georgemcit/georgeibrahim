@@ -1,4 +1,4 @@
-
+/*
 locals{
    vm_list=["firstvm","secondvm","thirdvm","fourthvm","fifthvm"]
 }
@@ -75,3 +75,4 @@ resource "azurerm_virtual_machine" "ibrahim" {
 variable "prefix" {
   default = "tfvmex"
 }
+*/
