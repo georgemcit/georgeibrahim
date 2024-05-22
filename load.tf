@@ -1,45 +1,47 @@
-resource "azurerm_kubernetes_cluster" "george1" {
-  for_each            = {for cluster in local.cluster_names: cluster=>cluster}
-  name                = "${var.prefix}cluster"
-  location            = azurerm_resource_group.georgeibrahim.location
-  resource_group_name = azurerm_resource_group.georgeibrahim.name
-  dns_prefix          = var.dns_prefix
+locals{
+  loadbalancerconfig=[for f in fileset("${path.module}/${var.folder}", "[^_]*.yaml") : yamldecode(file("${path.module}/${var.folder}/${f}"))]
+  loadbalancerlist = flatten([
+    for app in local.loadbalancerconfig : [
+      for loadbalancer in try(app.loadbalancerconfiguration, []) :{
+        name=loadbalancer.publicipname
+        allocation_method=loadbalancer.allocation_method
 
-  default_node_pool {
-    name       = var.default_node_pool_name
-    node_count = var.default_node_pool__node_count
-    vm_size    = var.default_node_pool_vm_size 
-  }
+      }
+    ]
+])
+}
+resource "azurerm_resource_group" "loadbalancerrg" {
+  name     = var.loadbalancer_name
+  location = var.loadbalancer_location
+}
 
-  identity {
-    type = var.identity
-  }
+resource "azurerm_public_ip" "azurepublicipexample" {
+  for_each            = {for publicip in local.loadbalancerlist: "${publicip.name}"=>publicip }
+  name                = each.value.name
+  location            = azurerm_resource_group.loadbalancerrg.location
+  resource_group_name = azurerm_resource_group.loadbalancerrg.name
+  allocation_method   = each.value.allocation_method
+}
 
-  tags = {
-    Environment = var.environment_tag
+resource "azurerm_lb" "azureloadbalancerexample" {
+  for_each            = azurerm_public_ip.azurepublicipexample
+  name                = each.value.name
+  location            = azurerm_resource_group.loadbalancerrg.location
+  resource_group_name = azurerm_resource_group.loadbalancerrg.name
+  frontend_ip_configuration {
+    name                 = "PublicIPAddress"
+    public_ip_address_id = each.value.id
   }
 }
-variable "dns_prefix"{
+variable"loadbalancer_name"{
   type=string
-  default="george"
+  default="georgeibrahim"
 }
-variable  "default_node_pool_name"{
+variable"loadbalancer_location"{
   type=string
-  default="ibrahim"
+  default="West Europe"
 }
-variable  "default_node_pool__node_count"{
-  type=number
-  default=1
-}
-variable  "identity"{
+variable "folder"{
   type=string
-  default="SystemAssigned"
-}
-variable  "environment_tag"{
-  type=string
-  default="Production"
-}
-variable  "default_node_pool_vm_size"{
-  type=string
-  default="Standard_D2_v2"
+  default="lbfolder"
 }
