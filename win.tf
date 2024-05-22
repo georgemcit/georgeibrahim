@@ -30,6 +30,10 @@ resource "azurerm_windows_web_app" "george1980" {
 
   site_config {}
 }
+variable "dev"{
+ type=string
+ default="dev"
+}
 output "azure_window_app" {
   value = local.window_app_list
 }
