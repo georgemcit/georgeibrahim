@@ -33,12 +33,7 @@ resource "azurerm_mssql_server" "azuresqlserver" {
     environment = "production"
   }
 }
-variable "administrator_login"{
-  type=string
-}
-variable "administrator_login_password"{
-  type=string
-}
+
 variable "version_number"{
  type=string
  default="12.0"
@@ -48,3 +43,9 @@ variable "sqlserver"{
  default="sqlserver"
 }
 */
+variable "administrator_login"{
+  type=string
+}
+variable "administrator_login_password"{
+  type=string
+}
