@@ -1,3 +1,4 @@
+/*
 locals{
   waf_policy=[for f in fileset("${path.module}/waffolder", "[^_]*.yaml") : yamldecode(file("${path.module}/waffolder/${f}"))]
   azurewafpolicy_list = flatten([
@@ -127,3 +128,4 @@ variable  "list1_match_values"{
 variable  "list2_match_values"{
   type =list
 }
+*/
