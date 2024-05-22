@@ -106,8 +106,8 @@ locals{
 }
 resource "azurerm_kubernetes_cluster" "georgeibrahimcluster" {
   name                = "georgeibrahimcluster"
-  location            = azurerm_resource_group.azureresourcegroup.location
-  resource_group_name = azurerm_resource_group.azureresourcegroup.name
+  location            = azurerm_resource_group.georgeibrahim.location
+  resource_group_name = azurerm_resource_group.georgeibrahim.name
   dns_prefix          = "ccrf2301"
 
   default_node_pool {
@@ -127,8 +127,8 @@ resource "azurerm_kubernetes_cluster" "georgeibrahimcluster" {
 resource "azurerm_kubernetes_cluster" "george" {
   for_each            = {for cluster in local.cluster_list: cluster=>cluster}
   name                = "${var.prefix}cluster"
-  location            = azurerm_resource_group.azureresourcegroup.location
-  resource_group_name = azurerm_resource_group.azureresourcegroup.name
+  location            = azurerm_resource_group.georgeibrahim.location
+  resource_group_name = azurerm_resource_group.georgeibrahim.name
   dns_prefix          = "ccrf2301"
 
   default_node_pool {
