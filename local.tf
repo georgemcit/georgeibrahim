@@ -11,8 +11,8 @@ locals{
   total_output2 = ["724","238","219","291","555"]
   winter_sports_message = length(local.winterlistOfSports) > 3 ? "Winter sports list is extensive" : "Winter sports list is limited"
   winterlistOfSports=["icehockey","snowboarding","iceskating"]
-  servicename="abracadabra"
-  forum="abracadabramcit"
+  servicename="george"
+  forum="syria"
   lengthsa=length(local.servicename)
   lengthforum=length(local.forum)
   firstname="george"
@@ -32,15 +32,6 @@ output "print4"{
 }
 output "print5"{
     value = local.landmarks5
-}
-output "company_name"{
- value=var.company_name
-}
-output "ifstillworking"{
- value=var.ifstillworking
-}
-output "years_of_work"{
- value=var.years_of_work
 }
 output "wintersportslist"{
      value =[for sport in local.winterlistOfSports:sport]
