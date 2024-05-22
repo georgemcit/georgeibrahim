@@ -3,8 +3,9 @@ locals{
   rg_app_list = flatten([
     for app in local.rg_app : [
       for rgapps in try(app.resourcegroup, []) :{
-        name= rgapps.name
-        location=rgapps.location 
+         name=linuxapps.name
+        os_type=linuxapps.os_type
+        sku_name=linuxapps.sku_name  
       }
     ]
 ])
