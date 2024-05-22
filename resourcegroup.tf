@@ -4,6 +4,7 @@ locals{
     for app in local.resource_group: [
       for resourcegroup in try(app.listofresourcegroup, []) :{
         name=resourcegroup.name
+        location=resourcegroup.location
       }
     ]
 ])
