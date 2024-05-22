@@ -1,3 +1,4 @@
+/*
 locals{
   window_app=[for f in fileset("${path.module}/${var.dev}", "[^_]*.yaml") : yamldecode(file("${path.module}/${var.dev}/${f}"))]
   window_app_list = flatten([
@@ -49,3 +50,4 @@ output "sku_window_app" {
 output "dev" {
   value = var.dev
 }
+*/
