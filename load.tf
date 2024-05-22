@@ -1,3 +1,4 @@
+/*
 locals{
   loadbalancerconfig=[for f in fileset("${path.module}/${var.folder}", "[^_]*.yaml") : yamldecode(file("${path.module}/${var.folder}/${f}"))]
   loadbalancerlist = flatten([
@@ -45,3 +46,4 @@ variable "folder"{
   type=string
   default="lbfolder"
 }
+*/
