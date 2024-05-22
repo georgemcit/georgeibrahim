@@ -9,11 +9,11 @@ locals{
 ])
 }
 
-resource "azurerm_web_application_firewall_policy" "george" {
+resource "azurerm_web_application_firewall_policy" "georgeibrahim" {
   for_each            ={for sp in local.azurewafpolicy_list: "${sp.name}"=>sp }
   name                = each.value.name
-  resource_group_name = azurerm_resource_group.george.name
-  location            = azurerm_resource_group.george.location
+  resource_group_name = azurerm_resource_group.georgeibrahim.name
+  location            = azurerm_resource_group.georgeibrahim.location
 
   custom_rules {
     name      = var.custom_rules1_name
