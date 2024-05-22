@@ -1,1 +1,2 @@
-
+listofwafpolicy:
+  - policyname: azurewafpolicy
