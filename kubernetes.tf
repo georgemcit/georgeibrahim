@@ -215,6 +215,6 @@ output "host" {
 }
 variable "prefix"{
   type=string
-  default = var.prefix
+  default = "var.prefix"
  }
 
