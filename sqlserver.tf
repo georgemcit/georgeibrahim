@@ -29,12 +29,7 @@ resource "azurerm_mssql_server" "azuresqlserver" {
     environment = "production"
   }
 }
-variable "administrator_login"{
-  type=string
-}
-variable "administrator_login_password"{
-  type=string
-}
+
 variable "version_number"{
  type=string
  default="12.0"
@@ -58,3 +53,9 @@ variable "minimum_tls_version"{
  default="1.2"
 }
 */
+variable "administrator_login"{
+  type=string
+}
+variable "administrator_login_password"{
+  type=string
+}
