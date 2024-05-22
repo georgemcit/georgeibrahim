@@ -1,3 +1,4 @@
+/*
 locals{
   my_sql_app=[for f in fileset("${path.module}/${var.sqlserver}", "[^_]*.yaml") : yamldecode(file("${path.module}/${var.sqlserver}/${f}"))]
   my_sql_app_list = flatten([
@@ -46,3 +47,4 @@ variable "sqlserver"{
  type=string
  default="sqlserver"
 }
+*/
