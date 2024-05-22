@@ -146,4 +146,4 @@ output "kube_id"{
 output "kube_name"{
   value=[for cluster in azurerm_kubernetes_cluster.batchabcd:cluster.name ]
 }
-*/
+
