@@ -1,8 +1,8 @@
 resource "azurerm_kubernetes_cluster" "george1" {
   for_each            = {for cluster in local.cluster_names: cluster=>cluster}
   name                = "${var.prefix}cluster"
-  location            = azurerm_resource_group.azureresourcegroup.location
-  resource_group_name = azurerm_resource_group.azureresourcegroup.name
+  location            = azurerm_resource_group.georgeibrahim.location
+  resource_group_name = azurerm_resource_group.georgeibrahim.name
   dns_prefix          = var.dns_prefix
 
   default_node_pool {
