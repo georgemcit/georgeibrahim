@@ -1,4 +1,4 @@
-resource "azurerm_resource_group" "azureresourcegroup" {
-  name     = "george_ibrahim_1980_01_05"
+resource "azurerm_resource_group" "georgeibrahim" {
+  name     = "george_ibrahim"
   location = "Canada Central"
 }
