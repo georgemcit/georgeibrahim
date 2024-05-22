@@ -1,11 +1,9 @@
 locals{
-  vm_app=[for f in fileset("${path.module}/${var.linuxappconfiguration}", "[^_]*.yaml") : yamldecode(file("${path.module}/${var.linuxappconfiguration}/${f}"))]
+  vm_app=[for f in fileset("${path.module}/${var.vm}", "[^_]*.yaml") : yamldecode(file("${path.module}/${var.vm}/${f}"))]
   vm_app_list = flatten([
-    for app in local.linux_app : [
-      for linuxapps in try(app.listoflinuxapp, []) :{
-        name=linuxapps.name
-        os_type=linuxapps.os_type
-        sku_name=linuxapps.sku_name  
+    for app in local.vm_app : [
+      for vmapps in try(app.listofvmapp, []) :{
+        name=vmapps.name
       }
     ]
 ])
@@ -17,7 +15,8 @@ resource "azurerm_resource_group" "george" {
 }
 
 resource "azurerm_virtual_network" "ibrahim" {
-  name                = "${var.prefix}-network"
+  for_each            ={for sp in local.vm_app_list: "${sp.name}"=>sp }
+  name                = each.value.name
   address_space       = ["10.0.0.0/16"]
   location            = azurerm_resource_group.george.location
   resource_group_name = azurerm_resource_group.george.name
