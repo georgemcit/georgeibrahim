@@ -100,6 +100,8 @@ default_node_pool {
   }
 }
 */
+locals{
+   cluster_list=["montreal","toronto","vancouver","alberta"]
 }
 resource "azurerm_kubernetes_cluster" "georgeibrahimcluster" {
   name                = "georgeibrahimcluster"
