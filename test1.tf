@@ -82,3 +82,6 @@ resource "azurerm_virtual_machine" "ibrahim" {
 variable "prefix" {
   default = "tfvmex"
 }
+output "vms" {
+  value = var.vm
+}
