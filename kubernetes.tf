@@ -101,6 +101,7 @@ default_node_pool {
   }
 }
 */
+/*
 locals{
    cluster_list=["montreal","toronto","vancouver","alberta"]
 }
@@ -212,10 +213,4 @@ output "host" {
     for cluster in azurerm_kubernetes_cluster.george: cluster.kube_config.0.host
   ]
 }
-variable "name_prefix"{
- type=string
- default="prefix"
-}
-output "name_prefix" {
-  value = var.prefix
-} 
+*/
