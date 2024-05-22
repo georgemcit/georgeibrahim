@@ -101,7 +101,7 @@ default_node_pool {
   }
 }
 */
-/*
+
 locals{
    cluster_list=["montreal","toronto","vancouver","alberta"]
 }
@@ -215,6 +215,5 @@ output "host" {
 }
 variable "prefix"{
   type=string
-  default="var.prefix"
-}
-*/
+ }
+
