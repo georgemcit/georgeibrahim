@@ -212,4 +212,6 @@ output "host" {
     for cluster in azurerm_kubernetes_cluster.george: cluster.kube_config.0.host
   ]
 }
-
+output "calster_name"
+  type=string
+   
