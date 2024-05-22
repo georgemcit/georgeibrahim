@@ -17,7 +17,7 @@ default_node_pool {
   identity {
     type = "SystemAssigned"
   }
-
+*/
   tags = {
     Environment = "Production"
   }
@@ -99,7 +99,7 @@ default_node_pool {
     Environment = "Production"
   }
 }
-*/
+
 locals{
    cluster_list=["montreal","toronto","vancouver","alberta"]
 }
@@ -211,3 +211,4 @@ output "host" {
     for cluster in azurerm_kubernetes_cluster.george: cluster.kube_config.0.host
   ]
 }
+*/
