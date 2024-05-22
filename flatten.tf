@@ -1,4 +1,4 @@
-ariable "clouds_string" {
+variable "clouds_string" {
   default = "Azure Aws Gcp Alibaba Ibm"
 }
 variable "clouds_list" {
