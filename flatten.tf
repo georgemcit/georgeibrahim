@@ -1,4 +1,4 @@
-
+/*
 variable "clouds_string" {
   default = "Azure Aws Gcp Alibaba Ibm"
 }
@@ -39,7 +39,7 @@ output "number_list_test"{
 output "sumo_test"{
     value=sum ([for numberoutput in local.number_list_test: (numberoutput)])
 }
-*/
+
 variable "original_string" {
   default = "DUBAI SYRIA ITALY FRANCE GERMANY"
 }
@@ -166,4 +166,4 @@ variable "favouritefood"{
 output "favouritefood"{
     value=[for favouritefood in var.favouritefood:favouritefood ]
 }
-/*
+*/
