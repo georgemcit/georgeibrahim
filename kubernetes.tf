@@ -17,11 +17,12 @@ default_node_pool {
   identity {
     type = "SystemAssigned"
   }
-*/
+
   tags = {
     Environment = "Production"
   }
 }
+
 resource "azurerm_kubernetes_cluster" "simplekubernetescluster2" {
   name                = "george2"
   location            = azurerm_resource_group.georgeibrahim.location
@@ -99,7 +100,7 @@ default_node_pool {
     Environment = "Production"
   }
 }
-
+*/
 locals{
    cluster_list=["montreal","toronto","vancouver","alberta"]
 }
