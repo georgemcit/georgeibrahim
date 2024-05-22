@@ -1,3 +1,4 @@
+/*
 locals{ 
   cluster_names=["george01","george02","george03","george04","george05"]
 }
@@ -98,3 +99,4 @@ default_node_pool {
     Environment = "Production"
   }
 }
+*/
