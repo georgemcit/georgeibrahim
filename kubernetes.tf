@@ -215,5 +215,6 @@ output "host" {
 }
 variable "prefix"{
   type=string
+  value = var.prefix
  }
 
