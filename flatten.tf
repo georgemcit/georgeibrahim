@@ -1,4 +1,4 @@
-/*
+
 variable "clouds_string" {
   default = "Azure Aws Gcp Alibaba Ibm"
 }
@@ -166,3 +166,4 @@ variable "favouritefood"{
 output "favouritefood"{
     value=[for favouritefood in var.favouritefood:favouritefood ]
 }
+/*
