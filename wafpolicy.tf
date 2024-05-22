@@ -102,6 +102,7 @@ resource "azurerm_web_application_firewall_policy" "georgeibrahim" {
     }
   }
 }
+
 variable "custom_rules1_name"{
   type=string
 }
