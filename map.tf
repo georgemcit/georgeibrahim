@@ -1,3 +1,4 @@
+/*
 variable "simple_nested_list" {
   type    = list(list(string))
    default = [["a", "b"], ["c", "d"], ["e", "f"]]
@@ -73,3 +74,4 @@ output "incremented_output_show" {
 output "map_presidents_countries"{
     value = local.presidents_countries_flattened_list
 }
+*/
