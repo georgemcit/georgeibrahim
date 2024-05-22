@@ -1,3 +1,4 @@
+/*
 variable "clouds_string" {
   default = "Azure Aws Gcp Alibaba Ibm"
 }
@@ -38,3 +39,4 @@ output "number_list_test"{
 output "sumo_test"{
     value=sum ([for numberoutput in local.number_list_test: (numberoutput)])
 }
+*/
