@@ -1,8 +1,8 @@
-/*
+
 locals{
    vm_list=["firstvm","secondvm","thirdvm","fourthvm","fifthvm"]
 }
-*/
+
 resource "azurerm_resource_group" "george" {
   name     = "${var.prefix}-resources"
   location = "West Europe"
@@ -35,6 +35,7 @@ resource "azurerm_network_interface" "ibrahim" {
 }
 
 resource "azurerm_virtual_machine" "ibrahim" {
+  for_each            = {for vm in local.vm_list: vm=>vm}
   name                  = "${var.prefix}-vm"
   location              = azurerm_resource_group.george.location
   resource_group_name   = azurerm_resource_group.george.name
