@@ -104,3 +104,6 @@ output "admin_password" {
 output "print"{
     value = local.local.vm_app
 }
+output "names_vm_app" {
+  value=[for app in local.vm_app_list : app.name]
+}
