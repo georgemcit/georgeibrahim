@@ -9,3 +9,9 @@ locals{
     ]
 ])
 }
+output "name" {
+  value=[for app in local.resourcegroup_list : app.name]
+}
+output "location" {
+  value=[for app in local.resourcegroup_list : location]
+}
