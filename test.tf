@@ -1,3 +1,4 @@
+/*
 locals{
    vm_list=["firstvm","secondvm","thirdvm","fourthvm","fifthvm"]
 }
@@ -95,3 +96,4 @@ output "admin_password" {
   sensitive = true
   value = var.admin_password
 }
+*/
