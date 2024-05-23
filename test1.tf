@@ -23,7 +23,7 @@ resource "azurerm_virtual_network" "ibrahim" {
 }
 
 resource "azurerm_subnet" "internal" {
-  depends_on           = [azurerm_virtual_network.vnet]
+  depends_on           = [azurerm_virtual_network.ibrahim]
   for_each             = var.subnets
   resource_group_name  = var.rg.name
   virtual_network_name = var.vnet.config.name
