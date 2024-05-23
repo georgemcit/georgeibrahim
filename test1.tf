@@ -23,10 +23,12 @@ resource "azurerm_virtual_network" "ibrahim" {
 }
 
 resource "azurerm_subnet" "internal" {
-  name                 = "internal"
-  resource_group_name  = azurerm_resource_group.george.name
-  virtual_network_name = azurerm_virtual_network.ibrahim.name
-  address_prefixes     = ["10.0.2.0/24"]
+  depends_on           = [azurerm_virtual_network.vnet]
+  for_each             = var.subnets
+  resource_group_name  = var.rg.name
+  virtual_network_name = var.vnet.config.name
+  name                 = each.value.subnet_name
+  address_prefixes     = each.value.address_prefixes
 }
 
 resource "azurerm_network_interface" "ibrahim" {
