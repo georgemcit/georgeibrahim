@@ -1,3 +1,4 @@
+/*
 locals{
   resource_group=[for f in fileset("${path.module}/resource", "[^_]*.yaml") : yamldecode(file("${path.module}/resource/${f}"))]
   resourcegroup_list = flatten([
@@ -15,3 +16,4 @@ output "name" {
 output "location" {
   value=[for app in local.resourcegroup_list : location]
 }
+*/
