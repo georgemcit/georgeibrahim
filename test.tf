@@ -84,3 +84,6 @@ variable "computer_name"{
   type=string
   default="georgeibrahim"
 }
+output "computer_name" {
+  value = var.computer_name
+}
