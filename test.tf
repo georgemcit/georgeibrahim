@@ -1,4 +1,3 @@
-/*
 locals{
    vm_list=["firstvm","secondvm","thirdvm","fourthvm","fifthvm"]
 }
@@ -62,9 +61,7 @@ resource "azurerm_virtual_machine" "ibrahim" {
   }
   os_profile {
     computer_name  = "hostname"
-    admin_username = "testadmin"
-    admin_password = "Password1234!"
-  }
+ }
   os_profile_linux_config {
     disable_password_authentication = false
   }
@@ -75,4 +72,9 @@ resource "azurerm_virtual_machine" "ibrahim" {
 variable "prefix" {
   default = "tfvmex"
 }
-*/
+variable "admin_username"{
+  type=string
+}
+variable "admin_password"{
+  type=string
+}
