@@ -101,3 +101,10 @@ output "admin_password" {
   sensitive = true
   value = var.admin_password
 }
+variable "vm"{
+ type=string
+ default="vm"
+}
+output "vm" {
+  value = var.vm
+}
