@@ -101,9 +101,3 @@ output "admin_password" {
   sensitive = true
   value = var.admin_password
 }
-output "vmapp"{
-    value = local.vm_app
-}
-output "names_vm_app" {
-  value=[for app in local.vm_app_list : app.name]
-}
