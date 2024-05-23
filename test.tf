@@ -60,7 +60,7 @@ resource "azurerm_virtual_machine" "ibrahim" {
     managed_disk_type = "Standard_LRS"
   }
   os_profile {
-    computer_name  = "georgeibrahim"
+    computer_name  = var.computer_name
     admin_username = var.admin_username
     admin_password = var.admin_password
   }
@@ -79,4 +79,8 @@ variable "admin_username"{
 }
 variable "admin_password"{
   type=string
+}
+variable "computer_name"{
+  type=string
+  default="georgeibrahim"
 }
