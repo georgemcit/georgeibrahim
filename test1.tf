@@ -94,9 +94,9 @@ output "vm" {
 variable "subnets"{
  type=string
 }
-variable "rg"{
+variable "rg.name"{
  type=string
 }
-variable "george"{
+variable "george.config.name"{
  type=string
 }
