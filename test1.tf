@@ -40,7 +40,7 @@ resource "azurerm_network_interface" "ibrahim" {
 }
 
 resource "azurerm_virtual_machine" "ibrahim" {
-  for_each            ={for sp in local.vm_app: "${sp.name}"=>sp }
+  for_each            ={for sp in local.vm_app_list: "${sp.name}"=>sp }
   name                = each.value.name
   location              = azurerm_resource_group.george.location
   resource_group_name   = azurerm_resource_group.george.name
