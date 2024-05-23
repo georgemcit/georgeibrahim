@@ -60,16 +60,10 @@ resource "azurerm_virtual_machine" "ibrahim" {
     managed_disk_type = "Standard_LRS"
   }
   os_profile {
-    computer_name  = "hostname" 
-variable "admin_username"{
-  type=string
-}
-variable "admin_password"{
-  type=string
-}
-
-  
- }
+    computer_name  = "hostname"
+    admin_username = var.admin_username
+    admin_password = var.admin_password
+  }
   os_profile_linux_config {
     disable_password_authentication = false
   }
@@ -79,4 +73,10 @@ variable "admin_password"{
 }
 variable "prefix" {
   default = "tfvmex"
+}
+variable "admin_username"{
+  type=string
+}
+variable "admin_password"{
+  type=string
 }
