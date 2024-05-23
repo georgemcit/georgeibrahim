@@ -88,8 +88,10 @@ output "computer_name" {
   value = var.computer_name
 }
 output "admin_username" {
+  sensitive = true
   value = var.admin_username
 }
 output "admin_password" {
+  sensitive = true
   value = var.admin_password
 }
