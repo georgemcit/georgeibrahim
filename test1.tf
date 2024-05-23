@@ -8,27 +8,23 @@ locals{
     ]
 ])
 }
-
 resource "azurerm_resource_group" "george" {
   name     = "${var.prefix}-resources"
   location = "West Europe"
 }
 
 resource "azurerm_virtual_network" "ibrahim" {
-  for_each            ={for sp in local.vm_app_list: "${sp.name}"=>sp }
-  name                = each.value.name
+  name                = "${var.prefix}-network"
   address_space       = ["10.0.0.0/16"]
   location            = azurerm_resource_group.george.location
   resource_group_name = azurerm_resource_group.george.name
 }
 
 resource "azurerm_subnet" "internal" {
-  depends_on           = [azurerm_virtual_network.ibrahim]
-  for_each             = var.subnets
-  resource_group_name  = var.rg.name
-  virtual_network_name = var.george.config.name
-  name                 = each.value.subnet_name
-  address_prefixes     = each.value.address_prefixes
+  name                 = "internal"
+  resource_group_name  = azurerm_resource_group.george.name
+  virtual_network_name = azurerm_virtual_network.ibrahim.name
+  address_prefixes     = ["10.0.2.0/24"]
 }
 
 resource "azurerm_network_interface" "ibrahim" {
@@ -70,9 +66,9 @@ resource "azurerm_virtual_machine" "ibrahim" {
     managed_disk_type = "Standard_LRS"
   }
   os_profile {
-    computer_name  = "hostname"
-    admin_username = "testadmin"
-    admin_password = "Password1234!"
+    computer_name  = var.computer_name
+    admin_username = var.admin_username
+    admin_password = var.admin_password
   }
   os_profile_linux_config {
     disable_password_authentication = false
@@ -84,19 +80,24 @@ resource "azurerm_virtual_machine" "ibrahim" {
 variable "prefix" {
   default = "tfvmex"
 }
-variable "vm"{
- type=string
- default="vm"
+variable "admin_username"{
+  type=string
 }
-output "vm" {
-  value = var.vm
+variable "admin_password"{
+  type=string
 }
-variable "subnets"{
- type=string
+variable "computer_name"{
+  type=string
+  default="georgeibrahim"
 }
-variable "rg.name"{
- type=string
+output "computer_name" {
+  value = var.computer_name
 }
-variable "george.config.name"{
- type=string
+output "admin_username" {
+  sensitive = true
+  value = var.admin_username
+}
+output "admin_password" {
+  sensitive = true
+  value = var.admin_password
 }
