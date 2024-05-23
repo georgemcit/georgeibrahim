@@ -43,9 +43,9 @@ variable "sqlserver"{
  default="sqlserver"
 }
 */
-variable "administrator_login"{
+variable "admin_username"{
   type=string
 }
-variable "administrator_login_password"{
+variable "admin_password"{
   type=string
 }
