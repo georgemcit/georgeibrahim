@@ -1,5 +1,5 @@
 locals{
-  vm_app=[for f in fileset("${path.module}/${var.vm}", "[^_]*.yaml") : yamldecode(file("${path.module}/${var.vm}/${f}"))]
+  vm_app=[for f in fileset("${path.module}/vm", "[^_]*.yaml") : yamldecode(file("${path.module}/vm/${f}"))]
   vm_app_list = flatten([
     for app in local.vm_app : [
       for vmapps in try(app.listofvmapp, []) :{
@@ -101,10 +101,4 @@ output "admin_password" {
   sensitive = true
   value = var.admin_password
 }
-variable "vm"{
- type=string
- default="vm"
-}
-output "vm" {
-  value = var.vm
-}
+
