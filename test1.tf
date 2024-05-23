@@ -26,7 +26,7 @@ resource "azurerm_subnet" "internal" {
   depends_on           = [azurerm_virtual_network.ibrahim]
   for_each             = var.subnets
   resource_group_name  = var.rg.name
-  virtual_network_name = var.vnet.config.name
+  virtual_network_name = var.george.config.name
   name                 = each.value.subnet_name
   address_prefixes     = each.value.address_prefixes
 }
@@ -90,4 +90,13 @@ variable "vm"{
 }
 output "vm" {
   value = var.vm
+}
+variable "subnets"{
+ type=string
+}
+variable "rg"{
+ type=string
+}
+variable "george"{
+ type=string
 }
