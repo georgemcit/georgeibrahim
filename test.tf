@@ -87,3 +87,9 @@ variable "computer_name"{
 output "computer_name" {
   value = var.computer_name
 }
+output "admin_username" {
+  value = var.admin_username
+}
+output "admin_password" {
+  value = var.admin_password
+}
