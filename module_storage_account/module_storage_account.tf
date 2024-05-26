@@ -1,3 +1,4 @@
+/*
 #module for storage account
 resource "azurerm_resource_group" "georgerg" {
   name     = "george_ibrahim_1980_01_05"
@@ -41,4 +42,4 @@ output "storage_account_name" {
 output "storage_account_id" {
   value = azurerm_storage_account.storage_account.id
 }
-
+*/
