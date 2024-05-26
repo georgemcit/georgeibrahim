@@ -1,3 +1,4 @@
+/*
 locals{
   vm_app=[for f in fileset("${path.module}/vm", "[^_]*.yaml") : yamldecode(file("${path.module}/vm/${f}"))]
   vm_app_list = flatten([
@@ -107,3 +108,4 @@ output "vmapp"{
 output "names_vm_app" {
   value=[for app in local.vm_app_list : app.name]
 }
+*/
