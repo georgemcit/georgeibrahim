@@ -1,3 +1,4 @@
+/*
 module "module_win_vms" {
   source              = "./modulewinvms/"
   resource_group_name = "george_ibrahim"
@@ -35,3 +36,4 @@ output "administrator_login_password" {
   sensitive = true
   value = var.administrator_login_password 
 }
+*/
