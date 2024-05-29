@@ -52,6 +52,7 @@ resource "azurerm_windows_virtual_machine" "georgevm1" {
     version   = "latest"
   }
 }
+
 resource "azurerm_windows_virtual_machine" "georgevm2" {
   name                = "george-machine2"
   resource_group_name = azurerm_resource_group.georgeibrahim.name
