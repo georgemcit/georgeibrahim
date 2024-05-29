@@ -15,7 +15,4 @@ variable "admin_password" {
   description = "The admin password for the VMs"
   type        = string
 }
-output "module_vm_private _ip" {
-  description = "The private IP address of the web VM"
-  value       = azurerm_win_virtual_machine.web_vm.private_ip_address
-}
+
