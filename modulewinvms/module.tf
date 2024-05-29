@@ -51,6 +51,7 @@ resource "azurerm_windows_virtual_machine" "georgevm1" {
     sku       = "2016-Datacenter"
     version   = "latest"
   }
+}
 
 resource "azurerm_windows_virtual_machine" "georgevm2" {
   name                = "george-machine2"
@@ -74,6 +75,7 @@ resource "azurerm_windows_virtual_machine" "georgevm2" {
     sku       = "2016-Datacenter"
     version   = "latest"
   }
+}
 
 resource "azurerm_mssql_server" "georgesql" {
   name                         = "georgemssqlserver"
