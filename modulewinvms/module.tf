@@ -29,8 +29,31 @@ resource "azurerm_network_interface" "georgenic" {
   }
 }
 
-resource "azurerm_windows_virtual_machine" "georgevm" {
-  name                = "george-machine"
+resource "azurerm_windows_virtual_machine" "georgevm1" {
+  name                = "george-machine1"
+  resource_group_name = azurerm_resource_group.georgeibrahim.name
+  location            = azurerm_resource_group.georgeibrahim.location
+  size                = "Standard_F2"
+  admin_username      = var.admin_username
+  admin_password      = var.admin_password
+  network_interface_ids = [
+    azurerm_network_interface.georgenic.id,
+  ]
+
+  os_disk {
+    caching              = "ReadWrite"
+    storage_account_type = "Standard_LRS"
+  }
+
+  source_image_reference {
+    publisher = "MicrosoftWindowsServer"
+    offer     = "WindowsServer"
+    sku       = "2016-Datacenter"
+    version   = "latest"
+  }
+}
+resource "azurerm_windows_virtual_machine" "georgevm2" {
+  name                = "george-machine2"
   resource_group_name = azurerm_resource_group.georgeibrahim.name
   location            = azurerm_resource_group.georgeibrahim.location
   size                = "Standard_F2"
