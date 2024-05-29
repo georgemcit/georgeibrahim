@@ -13,7 +13,7 @@ resource "azurerm_virtual_network" "georgevn" {
 resource "azurerm_subnet" "georgesb" {
   name                 = "george_sb"
   resource_group_name  = azurerm_resource_group.georgeibrahim.name
-  virtual_network_name = azurerm_virtual_network.example.name
+  virtual_network_name = azurerm_virtual_network.georgevn.name
   address_prefixes     = ["10.0.2.0/24"]
 }
 
