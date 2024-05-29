@@ -1,2 +1,0 @@
-azurerm_resource_group_name="george_ibrahim"
-azurerm_resource_group_location="Canada Central"
