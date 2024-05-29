@@ -15,11 +15,11 @@ variable "admin_password" {
   description = "The admin password for the VMs"
   type        = string
 }
-variable "sqladministrator_login" {
+variable "administrator_login" {
   description = "The admin username for the mssql_server"
   type        = string
 }
-variable "sqladministrator_login_password" {
+variable "administrator_login_password" {
   description = "The admin password for the mssql_server"
   type        = string
 }
