@@ -17,11 +17,3 @@ variable "admin_password" {
   description = "The admin password for the VMs"
   type        = string
 }
-output "admin_username" {
-  sensitive = true
-  value = var.admin_username
-}
-output "admin_password" {
-  sensitive = true
-  value = var.admin_password 
-}
